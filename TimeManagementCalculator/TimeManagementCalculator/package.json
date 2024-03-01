@@ -1,0 +1,12 @@
+{
+  "name": "pie-custom-labels",
+  "description": "Pie chart with custom labels",
+  "dependencies": {
+    "save-dev": "0.0.1-security",
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  }
+}

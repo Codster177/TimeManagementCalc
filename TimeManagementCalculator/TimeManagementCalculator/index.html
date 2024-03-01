@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script>var exports = {};</script>
+    <script type="module" src="./index.js"></script>
+    <title>Time Management Calculator</title>
+</head>
+
+<body>
+    <div id="chart" style="height: 50vh"></div>
+    <form action="/action_page.php">
+    <label for="freeHours">Free Hours</label><br>
+    <label for="freeHoursDisplay" id="freeHoursDisplay">168</label><br><br>
+    <label for="attendingClass">Hours spent in class:</label><br>
+    <input type="text" id="input2" name="attendingClass" value=""><br><br>
+    <label for="studying">Hours spent studying:</label><br>
+    <input type="text" id="input3" name="studying" value=""><br><br>
+    <label for="working">Hours spent working:</label><br>
+    <input type="text" id="input4" name="working" value=""><br><br>
+    <label for="commuting">Hours spent commuting:</label><br>
+    <input type="text" id="input5" name="commuting" value=""><br><br>
+    <label for="meals">Hours spent eating meals:</label><br>
+    <input type="text" id="input6" name="eatingMeals" value=""><br><br>
+    <label for="sleeping">Hours spent sleeping:</label><br>
+    <input type="text" id="input7" name="sleeping" value=""><br><br>
+    <label for="hygiene">Hours spent for hygiene:</label><br>
+    <input type="text" id="input8" name="hygiene" value=""><br><br>
+    <label for="exercise">Hours spent exercising:</label><br>
+    <input type="text" id="input9" name="exercise" value=""><br><br>
+    <label for="studentOrg">Hours spent for student organizations:</label><br>
+    <input type="text" id="input10" name="studentOrg" value=""><br><br>
+    <label for="hobbies">Hours spent for hobbies:</label><br>
+    <input type="text" id="input11" name="hobbies" value=""><br><br>
+    <label for="chores">Hours spent for chores:</label><br>
+    <input type="text" id="input12" name="chores" value=""><br><br>
+    <label for="socializing">Hours spent socializing:</label><br>
+    <input type="text" id="input13" name="socializing" value=""><br><br>
+
+    
+    </form>
+    <script>
+        var freeHours = 168;
+        var attendingClass = 0;
+        var studying = 0;
+        var working = 0;
+        var commuting = 0;
+        var meals = 0;
+        var sleeping = 0;
+        var personalHygiene = 0;
+        var exercise = 0;
+        var studentOrg = 0;
+        var hobbies = 0;
+        var chores = 0;
+        var socializing = 0;
+
+        let runTime = () => 
+        {
+            attendingClass = document.getElementById("input2").innerHTML;
+            studying = document.getElementById("input3").innerHTML;
+            working = document.getElementById("input4").innerHTML;
+            commuting = document.getElementById("input5").innerHTML;
+            meals = document.getElementById("input6").innerHTML;
+            sleeping = document.getElementById("input7").innerHTML;
+            personalHygiene = document.getElementById("input8").innerHTML;
+            exercise = document.getElementById("input9").innerHTML;
+            studentOrg = document.getElementById("input10").innerHTML;
+            hobbies = document.getElementById("input11").innerHTML;
+            chores = document.getElementById("input12").innerHTML;
+            socializing = document.getElementById("input13").innerHTML;
+
+            freeHours = 168 - (attendingClass+studying+working+commuting+meals+sleeping+personalHygiene+exercise+studentOrg+hobbies+chores+socializing);
+
+            document.getElementById("freeHoursDisplay").innerHTML = freeHours;
+        }
+        document.getElementById("input2").value = attendingClass;
+        document.getElementById("input3").value = studying;
+        document.getElementById("input4").value = working;
+        document.getElementById("input5").value = studying;
+        document.getElementById("input6").value = meals;
+        document.getElementById("input7").value = sleeping;
+        document.getElementById("input8").value = personalHygiene;
+        document.getElementById("input9").value = exercise;
+        document.getElementById("input10").value = studentOrg;
+        document.getElementById("input11").value = hobbies;
+        document.getElementById("input12").value = chores;
+        document.getElementById("input13").value = socializing;
+        setInterval(runTime, 100);
+    </script>
+  </body>
+
+</html>
