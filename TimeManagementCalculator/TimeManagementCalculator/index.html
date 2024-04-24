@@ -5,57 +5,65 @@
 <head>
     <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
     <title>Time Management Calculator</title>
+    <style>
+        .freeHoursStyle
+        {
+            font-family:Verdana, sans-serif;
+            font-size: 30px;
+            border-left-style: solid;
+        }
+        .normalLabelTitle
+        {
+            font-family: Verdana, sans-serif;
+            font-size: 15px;
+            
+        }
+        .normalLabel
+        {
+            font-family: Verdana, sans-serif;
+            font-size: 15px;
+        }
+        .pieChart
+        {
+            border-bottom-style: dotted;
+        }
+    </style>
 </head>
 
 <body>
     <script>
-        
-        var freeHours = 86;
-        var attendingClass = 4;
-        var studying = 2;
-        var working = 12;
-        var commuting = 45;
-        var meals = 7;
-        var sleeping = 56;
-        var personalHygiene = 0;
-        var exercise = 0;
-        var studentOrg = 0;
-        var hobbies = 0;
-        var chores = 0;
-        var socializing = 0;
-
-        nums = [freeHours, attendingClass, studying, commuting, meals, sleeping, personalHygiene, exercise, studentOrg, hobbies, chores, socializing];
+        nums = [168, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         names = ['Free Time', 'Class', 'Working', 'Studying', 'Commuting', 'Eating', 'Sleeping', 'Self Care', 'Exercise', 'Clubs', 'Hobbies', 'Chores', 'Socializing' ];
     </script>
 
-    <div id="container"></div>
+    <div class="pieChart" id="container"></div>
     <form action="/action_page.php">
-    <label for="freeHours">Free Hours</label><br>
-    <label for="freeHoursDisplay" id="freeHoursDisplay">168</label><br><br>
-    <label for="attendingClass">Hours spent in class:</label><br>
-    <input type="text" id="input2" name="attendingClass" value="0"><br><br>
-    <label for="studying">Hours spent studying:</label><br>
-    <input type="text" id="input3" name="studying" value="0"><br><br>
-    <label for="working">Hours spent working:</label><br>
-    <input type="text" id="input4" name="working" value="0"><br><br>
-    <label for="commuting">Hours spent commuting:</label><br>
-    <input type="text" id="input5" name="commuting" value="0"><br><br>
-    <label for="meals">Hours spent eating meals:</label><br>
-    <input type="text" id="input6" name="eatingMeals" value="0"><br><br>
-    <label for="sleeping">Hours spent sleeping:</label><br>
-    <input type="text" id="input7" name="sleeping" value="0"><br><br>
-    <label for="hygiene">Hours spent for hygiene:</label><br>
-    <input type="text" id="input8" name="hygiene" value="0"><br><br>
-    <label for="exercise">Hours spent exercising:</label><br>
-    <input type="text" id="input9" name="exercise" value="0"><br><br>
-    <label for="studentOrg">Hours spent for student organizations:</label><br>
-    <input type="text" id="input10" name="studentOrg" value="0"><br><br>
-    <label for="hobbies">Hours spent for hobbies:</label><br>
-    <input type="text" id="input11" name="hobbies" value="0"><br><br>
-    <label for="chores">Hours spent for chores:</label><br>
-    <input type="text" id="input12" name="chores" value="0"><br><br>
-    <label for="socializing">Hours spent socializing:</label><br>
-    <input type="text" id="input13" name="socializing" value="0"><br><br>
+    <label class="freeHoursStyle" for="freeHours">Hours Left</label><br>
+    <label class="freeHoursStyle" for="freeHoursDisplay" id="freeHoursDisplay">168</label><br><br>
+    <label class="normalLabelTitle" for="attendingClass">Hours spent in class:</label><br>
+    <input class="normalLabel"type="number" id="input2" name="attendingClass" value="0"><br><br>
+    <label class="normalLabelTitle"for="studying">Hours spent studying:</label><br>
+    <input class="normalLabel"type="number" id="input3" name="studying" value="0"><br><br>
+    <label class="normalLabelTitle"for="working">Hours spent working:</label><br>
+    <input class="normalLabel"type="number" id="input4" name="working" value="0"><br><br>
+    <label class="normalLabelTitle"for="commuting">Hours spent commuting:</label><br>
+    <input class="normalLabel"type="number" id="input5" name="commuting" value="0"><br><br>
+    <label class="normalLabelTitle"for="meals">Hours spent eating meals:</label><br>
+    <input class="normalLabel"type="number" id="input6" name="eatingMeals" value="0"><br><br>
+    <label class="normalLabelTitle"for="sleeping">Hours spent sleeping:</label><br>
+    <input class="normalLabel"type="number" id="input7" name="sleeping" value="0"><br><br>
+    <label class="normalLabelTitle"for="hygiene">Hours spent for hygiene:</label><br>
+    <input class="normalLabel"type="number" id="input8" name="hygiene" value="0"><br><br>
+    <label class="normalLabelTitle"for="exercise">Hours spent exercising:</label><br>
+    <input class="normalLabel"type="number" id="input9" name="exercise" value="0"><br><br>
+    <label class="normalLabelTitle"for="studentOrg">Hours spent for student organizations:</label><br>
+    <input class="normalLabel"type="number" id="input10" name="studentOrg" value="0"><br><br>
+    <label class="normalLabelTitle"for="hobbies">Hours spent for hobbies:</label><br>
+    <input class="normalLabel"type="number" id="input11" name="hobbies" value="0"><br><br>
+    <label class="normalLabelTitle"for="chores">Hours spent for chores:</label><br>
+    <input class="normalLabel"type="number" id="input12" name="chores" value="0"><br><br>
+    <label class="normalLabelTitle"for="socializing">Hours spent socializing:</label><br>
+    <input class="normalLabel"type="number" id="input13" name="socializing" value="0"><br><br>
 
     
     </form>
@@ -66,21 +74,6 @@
             {
                 series: [
                 {
-                    dataSource: [
-                        { 'x': 'Free Time', y: freeHours }, 
-                        { 'x': 'Class', y: attendingClass },
-                        { 'x': 'Working', y:working},
-                        { 'x': 'Studying', y: studying },
-                        { 'x': 'Commuting', y: commuting },
-                        { 'x': 'Eating', y: meals },
-                        { 'x': 'Sleeping', y: sleeping },
-                        { 'x': 'Self Care', y: personalHygiene },
-                        { 'x': 'Exercise', y: exercise },
-                        { 'x': 'Clubs', y: studentOrg },
-                        { 'x': 'Hobbies', y: hobbies },
-                        { 'x': 'Chores', y: chores },
-                        { 'x': 'Socializing', y: socializing },
-                    ],
                     dataLabel: {
                         visible: true,
                         position: 'Inside',
@@ -90,99 +83,133 @@
                 }
                 ]
             }
-        )
-        
-        function changes(ar1, ar2) 
-        {
-            for(let i = 0; i < 12; i++)
-            {
-                if (ar[i] != ar[i])
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-        
+        )    
     
 
         pie.appendTo('#container');
         var test = 0;
         let runTime = () => 
         {
-
-            attendingClass = document.getElementById("input2").value;
-            studying = document.getElementById("input3").value;
-            working = document.getElementById("input4").value;
-            commuting = document.getElementById("input5").value;
-            meals = document.getElementById("input6").value;
-            sleeping = document.getElementById("input7").value;
-            personalHygiene = document.getElementById("input8").value;
-            exercise = document.getElementById("input9").value;
-            studentOrg = document.getElementById("input10").value;
-            hobbies = document.getElementById("input11").value;
-            chores = document.getElementById("input12").value;
-            socializing = document.getElementById("input13").value;
-
-            newNum = [freeHours, attendingClass, studying, commuting, meals, sleeping, personalHygiene, exercise, studentOrg, hobbies, chores, socializing];
-
-            freeHours = Number(168) - (Number(attendingClass) + Number(studying) + Number(working) + Number(commuting) + Number(meals) + Number(sleeping) + Number(personalHygiene) + Number(exercise) + Number(studentOrg) + Number(hobbies) + Number(chores) + Number(socializing));
-
-            recalculateValues();
-
-            for (let i = 0; i < 12; i++)
+            oldNum = [nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6], nums[7], nums[8], nums[9], nums[10], nums[11], nums[12]];
+            
+            nums[1] = document.getElementById("input2").value;
+            nums[2] = document.getElementById("input3").value;
+            nums[3] = document.getElementById("input4").value;
+            nums[4] = document.getElementById("input5").value;
+            nums[5] = document.getElementById("input6").value;
+            nums[6] = document.getElementById("input7").value;
+            nums[7] = document.getElementById("input8").value;
+            nums[8] = document.getElementById("input9").value;
+            nums[9] = document.getElementById("input10").value;
+            nums[10] = document.getElementById("input11").value;
+            nums[11] = document.getElementById("input12").value;
+            nums[12] = document.getElementById("input13").value;
+            
+            totalActiveHours = (Number(nums[1]) + Number(nums[2]) + Number(nums[3]) + Number(nums[4]) + Number(nums[5]) + Number(nums[6]) + Number(nums[7]) + Number(nums[8]) + Number(nums[9]) + Number(nums[10]) + Number(nums[11]) + Number(nums[12]));
+            tempFreeHours = Number(168) - Number(totalActiveHours);
+            for (let i = 0; i < 13; i++)
             {
-                if (newNum[i] > 0)
+                if (oldNum[1] != nums[1])
                 {
-                    pie.series[0].dataSource = [{'x': name[i], y: newNum[i]}];
+                    recalculateValuesStudying();
+                }
+                else if (oldNum[i] != nums[i])
+                {
+                    recalculateValues(i);
+                }
+                
+            }
+            
+            function recalculateValuesStudying()
+            {
+                if (nums[2] <= 3 * Number(nums[1]))
+                {
+                    nums[2] = 3 * Number(nums[1]);
+                }
+                if (((Number(nums[0]) + Number(nums[2] / 3)) - Number(nums[2])) < 0)
+                {
+                    otherNums = Number(nums[0]) - (Number(nums[1] + Number(nums[2])));
+                    nums[1] = ((Number(nums[0]) - Number(otherNums)) - (Number((nums[0]) - Number(otherNums))%Number(4)))/Number(4);
+                    nums[2] = Number(3) * Number(nums[1]);
                 }
             }
-            // pie.series[0].dataSource = [
-            //             { 'x': 'Free Time', y: freeHours }, 
-            //             { 'x': 'Class', y: attendingClass },
-            //             { 'x': 'Studying', y: studying },
-            //             { 'x': 'Working', y:working},
-            //             { 'x': 'Commuting', y: commuting },
-            //             { 'x': 'Eating', y: meals },
-            //             { 'x': 'Sleeping', y: sleeping },
-            //             { 'x': 'Self Care', y: personalHygiene },
-            //             { 'x': 'Exercise', y: exercise },
-            //             { 'x': 'Clubs', y: studentOrg },
-            //             { 'x': 'Hobbies', y: hobbies },
-            //             { 'x': 'Chores', y: chores },
-            //             { 'x': 'Socializing', y: socializing },
-            //         ];
-
-
-            for (let i = 0; i < 12; i++)
+            function recalculateValues(i)
             {
-                if ((newNum[i] - num[i]) > 0)
+                if ((tempFreeHours - nums[i]) < 0)
                 {
-                    pie.refresh();
+                    nums[i] = Number(nums[i]) - Number(Math.abs(tempFreeHours));
                 }
-            }
-
-            function recalculateValues()
-            {
-                if (studying <= 3 * Number(attendingClass)){
-                    studying = 3 * Number(attendingClass);
+                else if (nums[i] < 0 )
+                {
+                    nums[i] = 0;
                 }
             }
             
-            document.getElementById("freeHoursDisplay").innerHTML = freeHours;
+            
+            totalActiveHours = (Number(nums[1]) + Number(nums[2]) + Number(nums[3]) + Number(nums[4]) + Number(nums[5]) + Number(nums[6]) + Number(nums[7]) + Number(nums[8]) + Number(nums[9]) + Number(nums[10]) + Number(nums[11]) + Number(nums[12]));
+            nums[0] = Number(168) - Number(totalActiveHours);
+            
+            // for (let i = 0; i < 12; i++)
+            // {
+                //     if (oldNum[i] > 0)
+                //     {
+                    //         pie.series[0].dataSource = [{'x': name[i], y: oldNum[i]}];
+                    //     }
+                    // }
+                    tempNums = [nums[0], nums[1], nums[2], nums[3], nums[4], nums[5], nums[6], nums[7], nums[8], nums[9], nums[10], nums[11], nums[12]];
+                    for (let i = 0; i < 13; i++)
+                    {
+                        if (tempNums[i] == 0)
+                        {
+                    tempNums[i] = null;
+                }
+            }
 
-            document.getElementById("input2").value = attendingClass;
-            document.getElementById("input3").value = studying;
-            document.getElementById("input4").value = working;
-            document.getElementById("input5").value = commuting;
-            document.getElementById("input6").value = meals;
-            document.getElementById("input7").value = sleeping;
-            document.getElementById("input8").value = personalHygiene;
-            document.getElementById("input9").value = exercise;
-            document.getElementById("input10").value = studentOrg;
-            document.getElementById("input11").value = hobbies;
-            document.getElementById("input12").value = chores;
-            document.getElementById("input13").value = socializing;
+            pie.series[0].dataSource = [
+                        { 'x': 'Hours Left', y: tempNums[0] }, 
+                        { 'x': 'Class', y: tempNums[1] },
+                        { 'x': 'Studying', y: tempNums[2] },
+                        { 'x': 'Working', y:tempNums[3]},
+                        { 'x': 'Commuting', y: tempNums[4] },
+                        { 'x': 'Eating', y: tempNums[5] },
+                        { 'x': 'Sleeping', y: tempNums[6] },
+                        { 'x': 'Self Care', y: tempNums[7] },
+                        { 'x': 'Exercise', y: tempNums[8] },
+                        { 'x': 'Clubs', y: tempNums[9] },
+                        { 'x': 'Hobbies', y: tempNums[10] },
+                        { 'x': 'Chores', y: tempNums[11] },
+                        { 'x': 'Socializing', y: tempNums[12] },
+                    ];
+
+
+            // for (let i = 0; i < 13; i++)
+            // {
+            //     if ((oldNum[i] - num[i]) > 0)
+            //     {
+            //         pie.refresh();
+            //     }
+            // }
+
+            for (let i = 0; i < 13; i++)
+            {
+                oldNum[i] = nums[i];
+            }
+            
+            document.getElementById("freeHoursDisplay").innerHTML = nums[0];
+
+            document.getElementById("input2").value = nums[1];
+            document.getElementById("input3").value = nums[2];
+            document.getElementById("input4").value = nums[3];
+            document.getElementById("input5").value = nums[4];
+            document.getElementById("input6").value = nums[5];
+            document.getElementById("input7").value = nums[6];
+            document.getElementById("input8").value = nums[7];
+            document.getElementById("input9").value = nums[8];
+            document.getElementById("input10").value = nums[9];
+            document.getElementById("input11").value = nums[10];
+            document.getElementById("input12").value = nums[11];
+            document.getElementById("input13").value = nums[12];
+
         }
         
         setInterval(runTime, 100);
